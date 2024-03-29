@@ -27,14 +27,14 @@ const ProductList: React.FC = () => {
   };
 
   const { data, isLoading, error } = useQuery("productData", () =>
-    fetchProducts()
+    fetchProducts(),
   );
 
   /**
    * Method to add products
    */
   const addProductMutation = useMutation((newProductData: INewProduct) =>
-    axios.post("https://dummyjson.com/products/add", newProductData)
+    axios.post("https://dummyjson.com/products/add", newProductData),
   );
   const [formData, setFormData] = useState<INewProduct>({
     title: "",
@@ -160,7 +160,7 @@ const ProductList: React.FC = () => {
           </div>
           <div style={styles.contentWrapper}>Price: ${product.price}</div>
           {/* Image rendering */}
-          <div style={styles.addNewproduct}>
+          <div style={styles.addNewProduct}>
             {product.images.map((image: string) => (
               <img
                 key={`images-${image}`}
